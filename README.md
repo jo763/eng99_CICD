@@ -17,7 +17,7 @@
 - Jenkins is an open-source automation server in which the central build and CI process take place, It is a Java-based program with packages for Windows, macOS, & Linux.
 - Great range of plugins available, Jenkins supports building, deploying, and automating for software development projects, easy installation, simple and user-friendly interface, extensible with huge community-contributed plugin resource, easy environment configuration in user interface & supports distributed builds with master-slave architecture.
 ## Creating a Jenkins job
-![](videos\jenkins_job_creation.gif)
+![](videos/jenkins_job_creation.gif)
 
 ## Using a Jenkins job to build another job
 ![](/videos/jenkins_job_builds_next_job.gif)
