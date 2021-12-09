@@ -25,3 +25,44 @@
 
 ## Using a Jenkins job to build another job
 ![](/videos/jenkins_job_builds_next_job.gif)
+
+## Using a Jenkins test instance to test a branch before merging
+- If the dev build succeeds, it will merge with the main branch which can then Initiate the build for the deployment branch
+- Ensure the branches to build is */dev
+```
+# Navigate to app folder
+cd app
+
+# Installed npm
+npm install
+
+# run the tests
+npm test
+
+git checkout main
+git merge origin/dev
+```
+- The post-build portion
+![](images/jenkins_postbuild_testing_and_merge_build.PNG)
+
+## Using Jenkins to deploy to an EC2 instance using Jenkins and webhooks
+![](/videos/jenkins_deployment.gif)
+- Code snippet below (Note IP after unbuntu@ needs to be the EC2 instance IP)
+- npm start disabled as it will run as a background process so the build can never finish building
+```
+ssh -A -o "StrictHostKeyChecking=no" ubuntu@34.243.159.143 <<EOF
+
+# install git
+sudo apt-get install git -y
+rm -rf Shahrukh_eng99_CICD/
+
+git clone https://github.com/jo763/Shahrukh_eng99_CICD
+# Change permission of provision to executable and then executing it
+chmod +x /home/ubuntu/Shahrukh_eng99_CICD/environment/app/provision.sh
+/home/ubuntu/Shahrukh_eng99_CICD/environment/app/provision.sh
+cd /home/ubuntu/Shahrukh_eng99_CICD/app
+#sudo apt install npm -y
+sudo npm install -y
+#npm start
+EOF
+```
