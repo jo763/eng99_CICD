@@ -66,3 +66,16 @@ sudo npm install -y
 #npm start
 EOF
 ```
+
+## Making a key
+- cd ~/.ssh
+```
+ssh -keygen -t rsa -b 4096 -C "email@email.com"
+```
+- Place
+![](images/deploy_keys.PNG)
+
+
+## Placing webhook
+- Place jenkins webhook IP address + /github-webhook in the webhook section in Github
+![](images/webhook_setup.PNG)
