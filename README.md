@@ -78,4 +78,5 @@ ssh -keygen -t rsa -b 4096 -C "email@email.com"
 
 ## Placing webhook
 - Place jenkins webhook IP address + /github-webhook in the webhook section in Github
+- e.g. http://54.216.116.240:8080/github-webhook/ 
 ![](images/webhook_setup.PNG)
